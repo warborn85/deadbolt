@@ -16,9 +16,9 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import AssignmentIcon from '@material-ui/icons/Assignment';
-import AddProjectContainer from './AddProject/AddProjectContainer';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
-import ProjectsContainer from './Projects/ProjectsContainer';
+import { AppBody } from './AppBody';
+import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -143,7 +143,7 @@ export default function AppBarWithDrawer() {
         </div>
         <Divider />
         <List>
-          <ListItem button>
+          <ListItem button to="/" component={Link}>
             <ListItemIcon>
               <AssignmentIcon />
             </ListItemIcon>
@@ -151,7 +151,7 @@ export default function AppBarWithDrawer() {
               All Projects
             </ListItemText>
           </ListItem>
-          <ListItem button>
+          <ListItem button to="/add" component={Link}>
             <ListItemIcon>
               <AddCircleIcon />
             </ListItemIcon>
@@ -164,8 +164,7 @@ export default function AppBarWithDrawer() {
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <AddProjectContainer />
-        <ProjectsContainer />
+        <AppBody />
       </main>
     </div>
   );

@@ -11,6 +11,7 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
 import CancelIcon from '@material-ui/icons/Cancel';
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,8 +43,20 @@ const GreenSwitch = withStyles({
   track: {},
 })(Switch);
 
+
 export const AddProject = ({name, description, isComplete, updateField, addProject, cancelUpdate}) => {
   const classes = useStyles();
+  let history = useHistory();
+
+  const addClick = () => {
+    history.push('/');
+    addProject();
+  };
+
+  const cancelClick = () => {
+    history.push('/');
+    cancelUpdate();
+  };
 
   return (
     <Paper className={classes.paper}>
@@ -98,7 +111,7 @@ export const AddProject = ({name, description, isComplete, updateField, addProje
             variant="contained"
             className={classes.button}
             startIcon={<CancelIcon />}
-            onClick={cancelUpdate}
+            onClick={cancelClick}
           >
             Cancel
           </Button>
@@ -107,7 +120,7 @@ export const AddProject = ({name, description, isComplete, updateField, addProje
             color="primary"
             className={classes.button}
             startIcon={<SaveIcon />}
-            onClick={addProject}
+            onClick={addClick}
           >
             Save
           </Button>

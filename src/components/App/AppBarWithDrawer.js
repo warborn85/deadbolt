@@ -19,6 +19,7 @@ import AssignmentIcon from '@material-ui/icons/Assignment';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import { AppBody } from './AppBody';
 import { Link } from 'react-router-dom';
+import PhotoCamera from '@material-ui/icons/PhotoCamera';
 
 const drawerWidth = 240;
 
@@ -157,6 +158,14 @@ export default function AppBarWithDrawer() {
             </ListItemIcon>
             <ListItemText>
               New Project
+            </ListItemText>
+          </ListItem>
+          <ListItem button to="/picture" component={Link}>
+            <ListItemIcon>
+              <PhotoCamera />
+            </ListItemIcon>
+            <ListItemText>
+              Picture
             </ListItemText>
           </ListItem>
         </List>
